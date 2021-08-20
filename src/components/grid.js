@@ -1,17 +1,16 @@
 
 import React from 'react'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 
 export const Grid = () => {
     const [isDrawing, setIsDrawing] = useState(false);
-    const [x, setX] = useState(0)
-    const [y, setY] = useState(0)
+    const [x, setX] = useState(0);
+    const [y, setY] = useState(0);
 
     const startDrawing = (e) => {
         setIsDrawing(true)
         setX(e.nativeEvent.offsetX);
         setY(e.nativeEvent.offsetY);
-        console.log('Start drawing!')
     }
 
     const stopDrawing = (e) => {
@@ -20,7 +19,6 @@ export const Grid = () => {
             setIsDrawing(false)
             setX(0);
             setY(0);
-            console.log('Stop drawing!')
         }
     }
 
@@ -36,12 +34,12 @@ export const Grid = () => {
         const ctx = document.getElementById('canvas').getContext('2d');
         ctx.beginPath()
         ctx.strokeStyle='white'
-        ctx.lineWidth = 10;
+        ctx.lineWidth = 15;
+        ctx.lineCap = 'round'
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
         ctx.stroke();
         ctx.closePath()
-        console.log(`${x2}, ${y2}`)
     }
 
     return (
