@@ -28,7 +28,9 @@ export const ActionBar = () => {
     const canvas = document.getElementById("canvas");
     const bigImage = canvas.toDataURL();
     const smallImage = await resizeImage(bigImage);
-    console.log(smallImage);
+    const pxArray = Array.from(smallImage)
+    console.log(pxArray.join())
+    
   };
 
   const cleanGridAction = () => {
