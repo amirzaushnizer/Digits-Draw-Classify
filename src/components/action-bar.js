@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import { makePrediction } from "../model";
 
 export const ActionBar = () => {
   async function loadImage(url, elem) {
@@ -28,8 +29,9 @@ export const ActionBar = () => {
     const canvas = document.getElementById("canvas");
     const bigImage = canvas.toDataURL();
     const smallImage = await resizeImage(bigImage);
-    const pxArray = Array.from(smallImage)
-    console.log(pxArray.join())
+    const pxArray = Array.from(smallImage) / 255
+    console.log(pxArray)
+    await makePrediction(pxArray)
     
   };
 
