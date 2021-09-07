@@ -2,7 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import { makePrediction } from "../model";
 
-export const ActionBar = () => {
+export const ActionBar = ({ setPredictions }) => {
   async function loadImage(url, elem) {
     return new Promise((resolve, reject) => {
       elem.onload = () => resolve(elem);
@@ -29,10 +29,9 @@ export const ActionBar = () => {
     const canvas = document.getElementById("canvas");
     const bigImage = canvas.toDataURL();
     const smallImage = await resizeImage(bigImage);
-    const pxArray = Array.from(smallImage) / 255
-    console.log(pxArray)
-    await makePrediction(pxArray)
-    
+    const pxArray = Array.from(smallImage).map((px) => px / 255);
+    const predictions = await makePrediction(pxArray);
+    setPredictions(predictions);
   };
 
   const cleanGridAction = () => {
