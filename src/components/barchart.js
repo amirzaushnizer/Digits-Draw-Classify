@@ -4,12 +4,10 @@ import { Card } from "react-bootstrap";
 
 export const Barchart = ({ results }) => {
   return (
-    <div>
-      <Card className='res'>
-        {results.map((chance, index) => {
-          return <Bar digit={index} chance={chance} />;
-        })}
-      </Card>
-    </div>
+    <Card className="res">
+      {results.map((chance, index) => {
+        return <Bar digit={index} chance={chance} />;
+      })}
+    </Card>
   );
 };

@@ -5,7 +5,8 @@ export const Bar = ({ digit, chance }) => {
   return (
     <div>
       <br></br>
-      <ProgressBar now={chance * 100} min="0" max="100" label={`${digit}`}></ProgressBar>
+      {digit}
+      <ProgressBar now={chance * 100} min="0" max="100"></ProgressBar>
       <br></br>
     </div>
   );
