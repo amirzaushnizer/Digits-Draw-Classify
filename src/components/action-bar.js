@@ -1,35 +1,14 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import { makePrediction } from "../model";
+import { makePrediction } from "../utils/model-utils";
+import { getSmallBWImage } from "../utils/image-utils";
 
 export const ActionBar = ({ setPredictions }) => {
-  async function loadImage(url, elem) {
-    return new Promise((resolve, reject) => {
-      elem.onload = () => resolve(elem);
-      elem.onerror = reject;
-      elem.src = url;
-    });
-  }
-
-  const resizeImage = async (image) => {
-    const canvas = document.createElement("canvas");
-    const size = 28;
-    canvas.width = size;
-    canvas.height = size;
-    const ctx = canvas.getContext("2d");
-    const imageContainer = new Image();
-    await loadImage(image, imageContainer);
-    ctx.drawImage(imageContainer, 0, 0, size, size);
-    return ctx
-      .getImageData(0, 0, canvas.width, canvas.height)
-      .data.filter((element, index) => index % 4 === 0);
-  };
-
   const analyzeGridAction = async () => {
     const canvas = document.getElementById("canvas");
     const bigImage = canvas.toDataURL();
-    const smallImage = await resizeImage(bigImage);
-    const pxArray = Array.from(smallImage).map((px) => px / 255);
+    const smallImageBW = await getSmallBWImage(bigImage);
+    const pxArray = Array.from(smallImageBW).map((px) => px / 255);
     const predictions = await makePrediction(pxArray);
     setPredictions(predictions);
   };
@@ -38,7 +17,7 @@ export const ActionBar = ({ setPredictions }) => {
     const canvas = document.getElementById("canvas");
     const context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
-    setPredictions([0, 0, 0, 0, 0, 0, 0, 0, 0 ,0]);
+    setPredictions([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   };
 
   return (
