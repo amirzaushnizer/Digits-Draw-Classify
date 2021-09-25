@@ -49,9 +49,6 @@ export const Grid = () => {
         width="300px"
         height="300px"
         style={{ backgroundColor: "black" }}
-        onTouchStart={startDrawing}
-        onTouchMove={onMouseMove}
-        onTouchEnd={stopDrawing}
         onMouseDown={startDrawing}
         onMouseUp={stopDrawing}
         onMouseMove={onMouseMove}
