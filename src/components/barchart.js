@@ -6,7 +6,7 @@ export const Barchart = ({ results }) => {
   return (
     <Card className="res">
       {results.map((chance, index) => {
-        return <Bar digit={index} chance={chance} />;
+        return <Bar digit={index} chance={chance} key={`digit bar ${index}`} />;
       })}
     </Card>
   );

@@ -3,13 +3,13 @@ import Button from "react-bootstrap/Button";
 import { makePrediction } from "../utils/model-utils";
 import { getSmallBWImage } from "../utils/image-utils";
 
-export const ActionBar = ({ setPredictions }) => {
+export const ActionBar = ({ setPredictions, model }) => {
   const analyzeGridAction = async () => {
     const canvas = document.getElementById("canvas");
     const bigImage = canvas.toDataURL();
     const smallImageBW = await getSmallBWImage(bigImage);
     const pxArray = Array.from(smallImageBW).map((px) => px / 255);
-    const predictions = await makePrediction(pxArray);
+    const predictions = await makePrediction(model, pxArray);
     setPredictions(predictions);
   };
 
@@ -22,8 +22,12 @@ export const ActionBar = ({ setPredictions }) => {
 
   return (
     <div id="action-bar">
-      <Button onClick={analyzeGridAction}>Analayze Grid</Button>
-      <Button onClick={cleanGridAction}>Clean Grid</Button>
+      <Button className="btn" onClick={analyzeGridAction}>
+        Analayze Grid
+      </Button>
+      <Button className="btn" onClick={cleanGridAction}>
+        Clean Grid
+      </Button>
     </div>
   );
 };

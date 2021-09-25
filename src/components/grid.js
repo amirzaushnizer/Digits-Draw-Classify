@@ -44,6 +44,7 @@ export const Grid = () => {
   return (
     <div>
       <canvas
+        className="grid"
         id="canvas"
         width="300px"
         height="300px"

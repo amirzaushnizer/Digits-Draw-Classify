@@ -1,18 +1,36 @@
 import "./App.css";
 import { ActionBar } from "./components/action-bar";
 import { Grid } from "./components/grid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Barchart } from "./components/barchart";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { getModel } from "./utils/model-utils";
+import { Spinner } from "react-bootstrap";
 
 function App() {
   const [predictions, setPredictions] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [model, setModel] = useState(null);
+
+  useEffect(() => {
+    getModel().then((fetchedModel) => {
+      setModel(fetchedModel);
+      setIsLoading(false);
+    });
+  }, []);
+
   return (
     <div className="App">
-      <Grid />
-      <ActionBar setPredictions={setPredictions} />
-      {predictions && (
-        <Barchart results={predictions} id="predictions"></Barchart>
+      {isLoading ? (
+        <Spinner animation="grow" />
+      ) : (
+        <div>
+          <Grid />
+          <ActionBar setPredictions={setPredictions} model={model} />
+          {predictions && (
+            <Barchart results={predictions} id="predictions"></Barchart>
+          )}
+        </div>
       )}
     </div>
   );
