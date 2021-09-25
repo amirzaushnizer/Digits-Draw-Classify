@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Digits-Draw-Classify/static/css/main.2756794b.chunk.css",
+    "main.js": "/Digits-Draw-Classify/static/js/main.429f0a99.chunk.js",
+    "main.js.map": "/Digits-Draw-Classify/static/js/main.429f0a99.chunk.js.map",
+    "runtime-main.js": "/Digits-Draw-Classify/static/js/runtime-main.e387f529.js",
+    "runtime-main.js.map": "/Digits-Draw-Classify/static/js/runtime-main.e387f529.js.map",
+    "static/css/2.818011ed.chunk.css": "/Digits-Draw-Classify/static/css/2.818011ed.chunk.css",
+    "static/js/2.9141d4e2.chunk.js": "/Digits-Draw-Classify/static/js/2.9141d4e2.chunk.js",
+    "static/js/2.9141d4e2.chunk.js.map": "/Digits-Draw-Classify/static/js/2.9141d4e2.chunk.js.map",
+    "index.html": "/Digits-Draw-Classify/index.html",
+    "static/css/2.818011ed.chunk.css.map": "/Digits-Draw-Classify/static/css/2.818011ed.chunk.css.map",
+    "static/css/main.2756794b.chunk.css.map": "/Digits-Draw-Classify/static/css/main.2756794b.chunk.css.map",
+    "static/js/2.9141d4e2.chunk.js.LICENSE.txt": "/Digits-Draw-Classify/static/js/2.9141d4e2.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/Digits-Draw-Classify/static/media/1_XlcUA3qNUs_jUObUJG0ZVQ.83289313.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e387f529.js",
+    "static/css/2.818011ed.chunk.css",
+    "static/js/2.9141d4e2.chunk.js",
+    "static/css/main.2756794b.chunk.css",
+    "static/js/main.429f0a99.chunk.js"
+  ]
+}
