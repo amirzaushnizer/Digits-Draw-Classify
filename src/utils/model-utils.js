@@ -7,7 +7,6 @@ export const getModel = async () => {
 };
 
 export const makePrediction = async (model, image) => {
-  await model;
   const imgTensor = tf.tensor(image, [1, 784]);
   const results = model.predict(imgTensor);
   return Array.from(results.dataSync());
