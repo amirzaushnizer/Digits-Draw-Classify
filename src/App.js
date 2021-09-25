@@ -8,7 +8,9 @@ import { getModel } from "./utils/model-utils";
 import { Spinner } from "react-bootstrap";
 
 function App() {
-  const [predictions, setPredictions] = useState(null);
+  const [predictions, setPredictions] = useState([
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  ]);
   const [isLoading, setIsLoading] = useState(true);
   const [model, setModel] = useState(null);
 
